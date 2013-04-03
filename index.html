@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
+
+
+  <style>
+    #map { position:absolute; top:0; bottom: 0; width:100%; }
+    .marker-dot {
+    background-color: red;
+    width:5px;
+    height:5px;
+    border:1px solid #000;
+    margin-left:-51px;
+    margin-top:-51px;
+    pointer-events:all;
+    position:absolute;
+}
+  </style>
+</head>
+
+<body>
+<div id='map'></div>
+
+<script>
+  var m = mapbox.map('map').zoom(13).center({ lat: 39.2833, lon: -76.6167 });
+  m.addLayer(mapbox.layer().id('examples.map-4l7djmvo'));
+  m.ui.attribution.add()
+    .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
+    m.ui.zoomer.add();
+
+var markers = mapbox.markers.layer().url('crime-clean.geojson')
+
+.factory(function(f) {
+        var dot = document.createElement('span');
+        dot.className = 'marker-dot';
+
+        return dot;
+    });
+
+
+
+
+
+
+mapbox.markers.interaction(markers);
+m.addLayer(markers);
+
+
+
+</script>
+
+
+
+</body>
+</html>
