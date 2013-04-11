@@ -10,16 +10,28 @@
   body {font-family:'helvetica'; }
 
 	#map {position:absolute; top:0; bottom: 0; width:100%; }
-    .marker-dot {
+
+.marker-dot {
     background-color: red;
-    width:3px;
-    height:3px;
-    border:1px solid #000;
-    margin-left:-51px;
-    margin-top:-51px;
+
+ /*This would need to be optimized for other browsers*/
     pointer-events:all;
     position:absolute;
+
+
+    -webkit-animation: marker-dance 1s infinite; /* Safari 4+ */
+    -moz-animation:    marker-dance 1s infinite; /* Fx 5+ */
+    -o-animation:      marker-dance 1s infinite; /* Opera 12+ */
+    animation:         marker-dance 1s infinite; /* IE 10+ */
 }
+
+@-webkit-keyframes marker-dance {
+  0%   { width: 16px; height: 16px; opacity:.5;  border-radius: 16px;     margin-left: -8px;  margin-top: -8px;}
+  50% { width: 32px; height: 32px; opacity:.15; border-radius: 22px;   margin-left: -16px;  margin-top: -16px;}
+  100%   { width: 16px; height: 16px; opacity:.5;  border-radius: 16px;     margin-left: -8px;  margin-top: -8px;}
+
+}
+
 	.marker-popup {
 		border:none;
 	}
@@ -51,16 +63,29 @@
 
 <div id='map'></div>
 <script>
+
   var m = mapbox.map('map').zoom(13).center({ lat: 39.2833, lon: -76.6167 });
+
   m.addLayer(mapbox.layer().id('examples.map-4l7djmvo'));
+  
   m.ui.attribution.add()
     .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
     m.ui.zoomer.add();
 
-var markers = mapbox.markers.layer().url('2012-shootings.geojson');
+var markers = mapbox.markers.layer().url('2012-shootings.geojson').factory(function(f) {
+    // Define a new factory function. This takes a GeoJSON object
+    // as its input and returns an element - in this case an image -
+    // that represents the point.
+        var span = document.createElement('span');
+        span.className = 'marker-dot';
+        span.setAttribute('src', f.properties.image);
+        return span;
+    });
+
 
 mapbox.markers.interaction(markers);
 m.addLayer(markers);
+
 
 
 
