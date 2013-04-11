@@ -13,22 +13,20 @@
 
 .marker-dot {
     background-color: red;
-
- /*This would need to be optimized for other browsers*/
     pointer-events:all;
     position:absolute;
-
-
-    -webkit-animation: marker-dance 1s infinite; /* Safari 4+ */
-    -moz-animation:    marker-dance 1s infinite; /* Fx 5+ */
-    -o-animation:      marker-dance 1s infinite; /* Opera 12+ */
-    animation:         marker-dance 1s infinite; /* IE 10+ */
+    height: 12px; width: 12px;
+    -webkit-animation: marker-dance 2s infinite ease-in-out; /* Safari 4+ */
+    -moz-animation:    marker-dance 2s infinite ease-in-out; /* Fx 5+ */
+    -o-animation:      marker-dance 2s infinite ease-in-out; /* Opera 12+ */
+    animation:         marker-dance 2s infinite ease-in-out; /* IE 10+ */
 }
 
+.marker-dot:hover {border: 2px solid black; -webkit-animation-play-state: paused | running;}
+
 @-webkit-keyframes marker-dance {
-  0%   { width: 16px; height: 16px; opacity:.5;  border-radius: 16px;     margin-left: -8px;  margin-top: -8px;}
-  50% { width: 32px; height: 32px; opacity:.15; border-radius: 22px;   margin-left: -16px;  margin-top: -16px;}
-  100%   { width: 16px; height: 16px; opacity:.5;  border-radius: 16px;     margin-left: -8px;  margin-top: -8px;}
+  0%   { opacity:.55;      margin-left: -1px;  margin-top: -1px;}
+  100% { opacity:.75;    margin-left: -3px;  margin-top: -3px;}
 
 }
 
