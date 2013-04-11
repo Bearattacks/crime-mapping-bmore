@@ -1,0 +1,76 @@
+   "features":[
+      
+      {
+         "id":121,
+         "properties":{
+            "crimeTime":"Sat Dec 30 20:35:00 GMT-05:00 1899",
+            "post":121,
+            "location":"300 N EUTAW ST",
+            "description":"COMMON ASSAULT",
+            "weapon":"",
+            "neighborhood":"Downtown",
+            "crimeCode":"4E",
+            "Latitude":39.29298,
+            "Longitude":-76.62119,
+            "crimeDate":"Thu Jan 03 00:00:00 GMT-05:00 2013",
+            "district":"CENTRAL"
+         },
+         "type":"Feature",
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -76.62119,
+               39.29298
+            ]
+         }
+      },
+      
+      {
+         "id":224,
+         "properties":{
+            "crimeTime":"Sat Dec 30 16:20:00 GMT-05:00 1899",
+            "post":224,
+            "location":"3700 E LOMBARD ST",
+            "description":"COMMON ASSAULT",
+            "weapon":"",
+            "neighborhood":"Baltimore Highlands",
+            "crimeCode":"4E",
+            "Latitude":39.29147,
+            "Longitude":-76.56631,
+            "crimeDate":"Thu Jan 03 00:00:00 GMT-05:00 2013",
+            "district":"SOUTHEASTERN"
+         },
+         "type":"Feature",
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -76.56631,
+               39.29147
+            ]
+         }
+      },
+      {
+         "id":733,
+         "properties":{
+            "crimeTime":"Sat Dec 30 14:00:00 GMT-05:00 1899",
+            "post":733,
+            "location":"1200 WHITELOCK ST",
+            "description":"COMMON ASSAULT",
+            "weapon":"",
+            "neighborhood":"Penn North",
+            "crimeCode":"4E",
+            "Latitude":39.31204,
+            "Longitude":-76.6387,
+            "crimeDate":"Thu Jan 03 00:00:00 GMT-05:00 2013",
+            "district":"WESTERN"
+         },
+         "type":"Feature",
+         "geometry":{
+            "type":"Point",
+            "coordinates":[
+               -76.6387,
+               39.31204
+            ]
+         }
+      }
+   ]

@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
   <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
   <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
 
 
   <style>
-  body {font-family:'helvetica'; }
-
-	#map {position:absolute; top:0; bottom: 0; width:100%; }
+    #map { position:absolute; top:0; bottom: 0; width:100%; }
     .marker-dot {
     background-color: red;
-    width:3px;
-    height:3px;
+    width:5px;
+    height:5px;
     border:1px solid #000;
     margin-left:-51px;
     margin-top:-51px;
     pointer-events:all;
     position:absolute;
 }
-	.marker-popup {
-		border:none;
-	}
-
-  #modal {
-    position: absolute;
-    top:50px;
-    left:20px;
-    z-index: 5;
-    box-shadow: 0px 4px 10px #494949;
-    background-color: white;
-    }
-
-    .inner-modal {
-      padding: 20px;
-    }
   </style>
 </head>
 
 <body>
-<div id="modal">
-  <div class="inner-modal">
-    <h2>2012 Crime</h2>
-    <button>near me</button>
-    <a href="#">Shootings</a>
-  </div>
-</div>
-
-
 <div id='map'></div>
+
 <script>
   var m = mapbox.map('map').zoom(13).center({ lat: 39.2833, lon: -76.6167 });
   m.addLayer(mapbox.layer().id('examples.map-4l7djmvo'));
@@ -57,7 +30,19 @@
     .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
     m.ui.zoomer.add();
 
-var markers = mapbox.markers.layer().url('2012-shootings.geojson');
+var markers = mapbox.markers.layer().url('crime-clean.geojson')
+
+.factory(function(f) {
+        var dot = document.createElement('span');
+        dot.className = 'marker-dot';
+
+        return dot;
+    });
+
+
+
+
+
 
 mapbox.markers.interaction(markers);
 m.addLayer(markers);
